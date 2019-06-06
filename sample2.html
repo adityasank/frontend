@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src= "https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div class="container">
+    <button class="btn btn-success mt-5 mb-5"  
+@click="addNewEmployee">New Employee</button>
+            
+</div>
+<div class ="card mb-2" v-for="(employee, index) in employees">
+    <div class="card-body">
+        <span class ="float-right" style="cursor:pointer">X</span>
+<h4 class ="card-title"> Add employee (index: {{index}})</h4>
+<div class ="employee-form">
+<input type = "text" class ="form=control mb-2" placeholder ="name" v-model="employee.name">
+
+
+    <input type = "text" class ="form=control mb-2" placeholder ="desc" v-model="employee.desc">
+</div>
+</div>
+</div> 
+
+<script>
+
+var app = new Vue({
+el: '.container',
+data:{
+employees:[
+{
+name:'',
+desc:'',
+}
+
+]
+},
+methods:{
+addNewEmployee(){
+this.employees.push({
+name:'',
+desc:''
+})
+}
+}
+})
+</script>
